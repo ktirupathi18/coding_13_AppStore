@@ -1,0 +1,18 @@
+/* Write your CSS here */
+.appItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 24px;
+  margin: 12px;
+  width: 200px;
+  height: 300px;
+  border-radius: 12px;
+  flex-shrink: 1;
+  min-width: 200px;
+}
+.appImage {
+  width: 150px;
+}
