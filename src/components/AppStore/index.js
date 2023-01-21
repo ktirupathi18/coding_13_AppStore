@@ -298,20 +298,33 @@ const appsList = [
 // Write your code here
 
 class AppStore extends Component {
-  state = {activeTab: tabsList[0].tabId}
+  state = {activeTab: tabsList[0].tabId, serachInput: ''}
 
   onClick = id => {
     this.setState({activeTab: id})
   }
 
+  onChange = event => {
+    this.setState({serachInput: event.target.value})
+  }
+
   render() {
-    const {activeTab} = this.state
-    const filteredList = appsList.filter(each => each.category === activeTab)
+    const {activeTab, serachInput} = this.state
+    let filteredList = appsList.filter(
+      each =>
+        each.category === activeTab &&
+        each.appName.toLowerCase().includes(serachInput.toLowerCase()),
+    )
+
+    if (filteredList.length === 0) {
+      filteredList = appsList.filter(each => each.category === activeTab)
+    }
+
     return (
       <div className="container">
         <h1 className="heading">App Store</h1>
         <form className="form">
-          <input type="search" className="input" />
+          <input type="search" className="input" onChange={this.onChange} />
           <img
             className="image"
             src="https://assets.ccbp.in/frontend/react-js/app-store/app-store-search-img.png"
@@ -328,7 +341,6 @@ class AppStore extends Component {
             />
           ))}
         </div>
-        <h1>{activeTab}</h1>
 
         <ul className="appItemContainer">
           {filteredList.map(eachApp => (

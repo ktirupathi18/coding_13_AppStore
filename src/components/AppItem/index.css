@@ -12,6 +12,7 @@
   border-radius: 12px;
   flex-shrink: 1;
   min-width: 200px;
+  font-size: 12px;
 }
 .appImage {
   width: 150px;
