@@ -20,6 +20,7 @@
   height: 40px;
   border-radius: 8px;
   margin: 28px;
+  ursor: point;
 }
 .image {
   height: 20px;
@@ -39,7 +40,7 @@
 .tabs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 .tab {

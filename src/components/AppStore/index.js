@@ -331,21 +331,29 @@ class AppStore extends Component {
             alt="search icon"
           />
         </form>
-        <div className="tabs">
-          {tabsList.map(each => (
-            <TabItem
-              details={each}
-              key={each.id}
-              onClick={this.onClick}
-              isActive={activeTab === each.tabId}
-            />
-          ))}
-        </div>
-
-        <ul className="appItemContainer">
-          {filteredList.map(eachApp => (
-            <AppItem details={eachApp} key={eachApp.appId} />
-          ))}
+        <ul type="none">
+          <li>
+            <ul className="tabs" type="none">
+              {tabsList.map(each => (
+                <li key={each.tabId}>
+                  <TabItem
+                    details={each}
+                    onClick={this.onClick}
+                    isActive={activeTab === each.tabId}
+                  />
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li>
+            <ul className="appItemContainer" type="none">
+              {filteredList.map(eachApp => (
+                <li className="appItem" key={eachApp.appId}>
+                  <AppItem details={eachApp} />
+                </li>
+              ))}
+            </ul>
+          </li>
         </ul>
       </div>
     )

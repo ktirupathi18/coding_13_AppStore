@@ -1,1 +1,5 @@
 /* Write your CSS here */
+.appName {
+  font-size: 24px;
+  font-weight: bold;
+}
